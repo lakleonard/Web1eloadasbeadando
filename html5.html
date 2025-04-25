@@ -7,7 +7,7 @@
 </head>
 <body>
 <header>
-    <h1>Web-programozás-1 Beadandó feladat</h1>
+    <h1>Web-programozás-1 Előadás Házi feladat</h1>
 </header>
 
 <nav>
@@ -28,18 +28,24 @@
 <main id="content">
     <h2>HTML5 API példák</h2>
 
-    <section>
+    <section id="webStorageSection">
         <h3>1. Web Storage</h3>
-        <input type="text" id="storageInput" placeholder="Írj be valamit...">
-        <button onclick="saveToLocal()">Mentés</button>
-        <p>Elmentett érték: <span id="storageResult"></span></p>
-    </section>
+        <label for="storageInput">Írj be valamit:</label>
+        <input type="text" id="storageInput">
+        <button onclick="saveToStorage()">Mentés</button>
+        <button onclick="loadFromStorage()">Betöltés</button>
+        <p id="storageMessage"></p>
+      </section>
 
-    <section>
+    <section id="webWorkerSection">
         <h3>2. Web Worker</h3>
-        <button onclick="startWorker()">Számolás indítása</button>
-        <p>Eredmény: <span id="workerResult">...</span></p>
-    </section>
+      
+        <div class="worker-box">
+          <button id="startWorkerBtn" onclick="startWorker()">💡 Indítsd el a számítást</button>
+          <div id="spinner" class="spinner" style="display: none;"></div>
+          <p id="workerResult">Eredmény ide fog kerülni...</p>
+        </div>
+      </section>
 
     <section>
         <h3>3. Geolocation</h3>
@@ -47,32 +53,54 @@
         <p>Hely: <span id="location">...</span></p>
     </section>
 
-    <section>
-        <h3>4. Drag & Drop</h3>
-        <div id="dragContainer">
-            <div id="drag1" draggable="true" ondragstart="drag(event)">🎯 Húzz el</div>
-            <div id="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">Ide dobd</div>
+    <section id="dragSection">
+        <h3>4. Drag &amp; Drop</h3>
+      
+        <div class="dropzone-container">
+          <div class="dropzone">
+            <p class="zone-title">Forrás</p>
+            <div id="drag1" class="draggable" draggable="true">🎯</div>
+          </div>
+      
+          <div class="dropzone">
+            <p class="zone-title">Cél</p>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section>
-        <h3>5. Canvas</h3>
-        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000;"></canvas>
-    </section>
 
-    <section>
-        <h3>6. SVG</h3>
-        <svg width="200" height="100">
-            <circle cx="50" cy="50" r="40" fill="blue" />
-            <rect x="100" y="20" width="80" height="60" fill="green" />
-        </svg>
-    </section>
+<section id="canvasSection">
+  <h3>5. Canvas rajzolás</h3>
+
+  <div id="canvas-buttons">
+    <button onclick="drawCircle()">Rajzolj kört</button>
+    <button onclick="drawRectangle()">Rajzolj téglalapot</button>
+  </div>
+
+  <canvas id="myCanvas" width="300" height="200" style="border:1px solid #000;"></canvas>
+
+
+  <section id="svgSection">
+    <h3>6. SVG példa</h3>
+  
+    <svg width="300" height="200" style="border: 1px solid #ccc; background-color: #f9f9f9;">
+      <!-- Téglalap -->
+      <rect x="20" y="20" width="80" height="50" fill="#00bfff" stroke="#0077aa" stroke-width="2" />
+  
+      <!-- Kör -->
+      <circle cx="180" cy="45" r="25" fill="#87cefa" stroke="#005577" stroke-width="2" />
+  
+      <!-- Vonal -->
+      <line x1="20" y1="120" x2="250" y2="120" stroke="#333" stroke-width="2" />
+    </svg>
+  </section>
+
 </main>
 
 <footer>
     <p>Készítők: Lakatos Leonárd (CBLHQ1), Mészáros Dávid (FD67X0)</p>
 </footer>
 
-<script src="js/html5.js"></script>
+<script src="html5.js"></script>
 </body>
 </html>
