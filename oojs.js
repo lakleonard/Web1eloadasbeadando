@@ -16,24 +16,29 @@ class Car {
     }
   }
   
+  // Leszármazott osztály: Sedan
   class Sedan extends Car {
     constructor() {
       super("Toyota", "Corolla", "Sedan");
     }
   }
   
+  // Leszármazott osztály: SUV
   class SUV extends Car {
     constructor() {
       super("Ford", "Explorer", "SUV");
     }
   }
   
-  function addSedan() {
-    const sedan = new Sedan();
-    sedan.render();
-  }
+  // DOM eseménykezelők csak akkor, ha már betöltődött az oldal
+  window.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("btnSedan").addEventListener("click", () => {
+      const sedan = new Sedan();
+      sedan.render();
+    });
   
-  function addSUV() {
-    const suv = new SUV();
-    suv.render();
-  }
+    document.getElementById("btnSUV").addEventListener("click", () => {
+      const suv = new SUV();
+      suv.render();
+    });
+  });
