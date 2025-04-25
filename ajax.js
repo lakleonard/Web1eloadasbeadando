@@ -1,4 +1,4 @@
-const code = "ABC123xyz999"; // NeptunKód + saját kód!
+const code = "CBLHQ1";
 
 function read() {
     fetch("http://gamf.nhely.hu/ajax2/?op=read&code=" + code)
